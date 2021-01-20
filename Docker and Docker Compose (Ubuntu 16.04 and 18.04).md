@@ -103,22 +103,32 @@ Install the docker-ce package
 sudo apt install -y docker-ce
 ```
 Check Docker is running
-```sudo systemctl status docker
+
+```
+sudo systemctl status docker
 ```
 Add your user to the docker group
-```sudo usermod -aG docker ${USER}
+
+```
+sudo usermod -aG docker ${USER}
 ```
 Take the new group in use with:``` su - ${USER}```
 
 ## Docker compose installation
-```curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-$(uname -s)-$(uname -m) -o ~/docker-compose
+
 ```
-```sudo mv ~/docker-compose /usr/local/bin/docker-compose 
+curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-$(uname -s)-$(uname -m) -o ~/docker-compose
 ```
-```sudo chmod +x /usr/local/bin/docker-compose
+```
+sudo mv ~/docker-compose /usr/local/bin/docker-compose 
+```
+```
+sudo chmod +x /usr/local/bin/docker-compose
 ```
 Check Docker compose is installed
-```docker-compose --version``` Should ouput something similar to:
 ```
-```docker-compose version 1.18.0, build 8dd22a9
+docker-compose --version``` Should ouput something similar to:
+```
+```
+docker-compose version 1.18.0, build 8dd22a9
 ```
