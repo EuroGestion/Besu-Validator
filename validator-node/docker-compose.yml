@@ -1,7 +1,7 @@
 version: "3"
 services:
   besu:
-    image: hyperledger/besu:1.4.3
+    image: hyperledger/besu:1.4.6
     container_name: besu
     environment:
       - BESU_P2P_HOST=${BESU_P2P_HOST}
