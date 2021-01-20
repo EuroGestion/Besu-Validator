@@ -126,9 +126,9 @@ sudo mv ~/docker-compose /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 Check Docker compose is installed
-```
+
 docker-compose --version``` Should ouput something similar to:
-```
+
 ```
 docker-compose version 1.18.0, build 8dd22a9
 ```
