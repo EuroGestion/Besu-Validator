@@ -154,7 +154,7 @@ In the Node-1 directory, start Node-1:
 ```
  ~/besu/build/distributions/besu-21.2.0-SNAPSHOT/bin/besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
 ```
-When the node starts, the enode URL displays. Copy the enode URL to specify Node-1 as the bootnode in the following steps.
+When the node starts, the enode URL displays. Copy the enode URL to specify Node-1 as the bootnode in the following steps. IMPORTANT: enode can be obtained from key.pub, adding @IP:30303, so steps 6, 7 ad 8 may be skipped if you want to get the enode. Notice theses steps are also neccesary for starting Besu network.
  
 ### 7. Start Node-2
 Start another terminal, change to the Node-2 directory and start Node-2 specifying the Node-1 enode URL copied when starting Node-1 as the bootnode:
