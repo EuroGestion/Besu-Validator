@@ -123,6 +123,32 @@ IBFT-Network/
 │   │    ├── key
 │   │    ├── key.pub
 ```
+### 5. Modify Genesis extradata
+* Create file toEncode.json:
+Extract nodeAddress from all 4 nodes. NodeAddress can be obtained from the keys directory. Important: Do not include "0x".
+
+```json
+[
+  "20c5b6250f99e3c41d8ae1593eef0520e4e3fcc1",
+  "8c0b92801cc7fdc62f74b7c0c248053fe92f9959",
+  "0xab601b7d7382e24eecb369e508c2de2e710d88d6",
+  "6f81cf8b4e36b4ae99567d2c96b8a4ca40585e92"
+]
+```
+
+In this step, we create our genesis.json. For this, we first need the `Node Public Key` we generated in the previous step of the nodes we want as validators. We will then create a json file with an array of said public keys, and encode it to RLP format. We then have to put the result in `extradata` of our genesis.json.
+
+```sh
+cd /data/alastria-node-besu/validator
+$ bin/besu rlp encode --from=toEncode.json
+# result:
+#0xf87ea00000000000000000000000000000000000000000000000000000000000000000f854948c0b92801cc7fdc62f74b7c0c248053fe92f99599420c5b6250f99e3c41d8ae1593eef0520e4e3fcc194ab601b7d7382e24eecb369e508c2de2e710d88d6946f81cf8b4e36b4ae99567d2c96b8a4ca40585e92808400000000c0
+$ vi genesis.json
+```
+
+* Fill [genesis.json](../configs/genesis.json) with this extradata
+
+
 ### 6. Start the first node as the bootnode
 In the Node-1 directory, start Node-1:
 ```
